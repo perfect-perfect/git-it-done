@@ -1,3 +1,9 @@
+// this created the DOM element where we will write the the repositories we receive from the API
+var repoContainerEl = document.querySelector("#repos-container");
+
+// this is the DOM element we created in order to wrtie the name we searched on to the page. so we know the repo we are looking at
+var repoSearchTerm = document.querySelector("#repo-search-term");
+
 // creates the dom element at the form element on the HTML
 var userFormEl = document.querySelector("#user-form");
 
@@ -18,6 +24,8 @@ var getUserRepos = function(user) {
         // .json retuns another promise, hence the extra then(), whose callback function captures the actual data. This nested then() will make more sence as you get used to working with APIs
         response.json().then(function(data) {
 
+            // confused by data here. must have something to do with data in the function right above.
+            // sends this two variables to the displayRepo function, which console logs them.
             displayRepos(data, user);
 
             // console.log(data); ---- saving this console.log() because i am curious about the use of data as an argument
@@ -43,6 +51,9 @@ var formSubmitHandler = function(event) {
     }
 };
 
+
+// this function will accept the array of repository data and the term we searched for as parameters
+// we sent the data and user variable from getUserRepos(). looks like we rename them here for this function repos and searchTerm.
 var displayRepos = function(repos, searchTerm) {
     console.log(repos);
     console.log(searchTerm);
