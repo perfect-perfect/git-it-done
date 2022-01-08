@@ -21,9 +21,26 @@
 
   <main class="flex-row justify-space-between">
 
-    <div class="col-12 col-md-4"></div>
+    <div class="col-12 col-md-4">
+        <div class="card">
+            <h3 class="card-header text-uppercase">Search By User</h3>
+            <form id="user-form" class="card-body">
+                <label class="form-label" for="username">Username</label>
+                <input name="form-label" id="username" type="text" autofocus="true" class="form-input" />
+                <button type="submit" class="btn">Get User</button>
+            </form>
+        </div>
+    </div>
   
-    <div class="col-12 col-md-8"></div>
+    <div class="col-12 col-md-8">
+        <h2 class="subtitle">
+            <!-- we created the span element here to write the search term to, so that users can know whose repo they are looking at -->
+            Showing Repositories for: <span id="repo-search"></span>
+        </h2>
+        <div id="repos-container" class="list-group">
+            <!-- we'll write repo data here -->
+        </div>
+    </div>
 
   </main>
 
